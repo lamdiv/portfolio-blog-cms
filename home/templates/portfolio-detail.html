@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/media.css'%}">
+    <script src="https://kit.fontawesome.com/7c8f6ae518.js" crossorigin="anonymous"></script>
+    <title>Diwash Lamichhane</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <input type="checkbox" id="nav-check">
+            <img src="{% static 'assets/logo.png' %}" class="logo">
+            <div class="nav-btn">
+                <label for="nav-check">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </label>
+              </div>
+              <ul class="nav-items">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/about">About</a></li>
+                <li class="nav-item active1"><a href="/portfolio">Portfolio</a></li>
+                <li class="nav-item"><a href="/blogs">Blogs</a></li>
+                <li class="nav-item"><a href="/contact">Contact</a></li>
+            </ul>  
+        </nav>
+        <section class="work-detail">
+            <h2 class="extra-height-2 align-me">Social Media Website</h2>
+            <div class="work-merge">
+                <div class="project-pictures">
+                        {% for image in project.images.all%}
+                            <div class="mySlides fade">
+                                <img src="{{image.images.url}}">
+                            </div>                       
+                        {%endfor%}
+
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                      
+                      <!-- The dots/circles -->
+                      <div class="dots">
+                        {% for image in project.images.all%}
+                            <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+                        {%endfor%}
+                      </div>
+                      <!-- %%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+                    
+                </div>
+                <div class="project-description">
+                    <div class="project-title">
+                        <h3>Description</h3>
+                        {% if project.github%}
+                            <a href="{{project.github}}"><i class="fab fa-github"></i></a>
+                        {%endif%}
+                    </div>
+                    <div class="preview">
+                        <div class="person"><i class="fas color-me fa-user-tag"></i> &nbsp; {{project.tag}}</div>
+                        <div class="person"><i class="fas color-me fa-link"></i> &nbsp; {%if project.preview%}<a href="{{project.preview}}" class="media">{{project.preview}}</a>{%else%}not available{%endif%}</div>
+                    </div>
+                    <div class="dex">
+                        <p>{{project.description}}</p>
+                    </div>
+                    <div>
+                        <div class="project-title1">
+                            
+                            <h3>Techonologies</h3>
+                            <div class="tags">
+                                {%for tag in project.technologies.all%}
+                                <div class="tags1">{{tag}}</div>
+                                {%endfor%}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <script>
+        var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+    </script>
+</body>
+</html>

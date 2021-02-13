@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/media.css'%}">
+    <script src="https://kit.fontawesome.com/7c8f6ae518.js" crossorigin="anonymous"></script>
+    <title>Diwash Lamichhane</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <input type="checkbox" id="nav-check">
+            <img src="{% static 'assets/logo.png' %}" class="logo">
+            <div class="nav-btn" id='nav-look' >
+                <label for="nav-check">
+                  <span id='1'></span>
+                  <span id='2'></span>
+                  <span id='3'></span>
+                </label>
+              </div>
+            <ul class="nav-items">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item active1"><a href="/about">About</a></li>
+                <li class="nav-item"><a href="/portfolio">Portfolio</a></li>
+                <li class="nav-item"><a href="/blogs">Blogs</a></li>
+                <li class="nav-item"><a href="/contact">Contact</a></li>
+            </ul>  
+        </nav>
+    <div class="about">
+        <div class="about-img">
+            <img src="{% static 'assets/sidelook.png'%}">
+        </div>
+        <div class="about-info">
+            <h2 class="center-align extra-height">Personal Info</h2>
+            <div class="line-height-enabled">
+                <p>Name : Diwash Lamichhane</p>
+                <p>Age : 17</p>
+                <p>Nationality : Nepali</p>
+                <p>Languages : Nepali,English</p>
+                <p>Email: diwash.happycoder@gmail.com</p>
+                <p>Freelance : Available <i class="far fa-check-circle"></i></p>
+            </div>
+            <div class="button-center">
+            <button class="btn-orange "><a href="./about.html" download>Download CV</a></button>
+        </div>
+        </div>
+    </div>
+    </header>
+
+    <section class="things">
+        <h2 class="extra-height-2">Things I Love To DO</h2>
+        <div class="cards">
+            <div class="card">
+               <img src="{% static 'assets/webdev.svg'%}">
+               <h4>Web Development</h4>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/mobdev.svg'%}">
+                <h4>Mobile Development</h4>
+            </div>
+            <div class="card">
+                <img src="{% static 'assets/branding.svg'%}">
+                <h4>Branding</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="skillset">
+        <h2 class="extra-height-2">Skillset</h2>
+        <div class="skills1">
+            <img src="{% static 'assets/python.svg'%}">
+            <img src="{% static 'assets/js.svg'%}">
+            <img src="{% static 'assets/dart.svg'%}">
+            <img src="{% static 'assets/html5.svg'%}">
+        </div>
+        <div class="skills2">
+        <img src="{% static 'assets/django.svg'%}">
+        <img src="{% static 'assets/flutter.png'%}">
+        <img src="{% static 'assets/css3.svg'%}">
+        </div>
+    </section>
+    <script src="https://kit.fontawesome.com/7c8f6ae518.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/media.css'%}">
+    <title>Diwash Lamichhane</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <input type="checkbox" id="nav-check">
+            <img src="{% static 'assets/logo.png' %}" class="logo">
+            <div class="nav-btn" id='nav-look' >
+                <label for="nav-check">
+                  <span id='1'></span>
+                  <span id='2'></span>
+                  <span id='3'></span>
+                </label>
+              </div>
+            <ul class="nav-items">
+                <li class="nav-item active1"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/about">About</a></li>
+                <li class="nav-item"><a href="/portfolio">Portfolio</a></li>
+                <li class="nav-item"><a href="/blogs">Blogs</a></li>
+                <li class="nav-item"><a href="/contact">Contact</a></li>
+            </ul>  
+        </nav>
+        <section class="home">    
+            <img src="{%static 'assets/circular-diwash.png'%}" class="home-img-responsive">
+            <img src="{%static 'assets/diwash.png'%}" class="home-img">
+            <div class="home-info">
+                <p>HEY! I AM</p>
+                <h1>Diwash Lamichhane</h1>
+                <h3>I'm a Web Developer</h3>
+                <button class="btn-orange margin-btn"><a href="/about">About me</a></button>
+            </div>
+        </section>
+    </header>
+    <script src="./js/index.js"></script>
+</body>
+</html>

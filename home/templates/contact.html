@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/media.css'%}">
+    <script src="https://kit.fontawesome.com/7c8f6ae518.js" crossorigin="anonymous"></script>
+    <title>Diwash Lamichhane</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="{% static 'assets/logo.png'%}" class="logo">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn" id='nav-look'>
+                <label for="nav-check">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </label>
+              </div>
+              <ul class="nav-items">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/about">About</a></li>
+                <li class="nav-item"><a href="/portfolio">Portfolio</a></li>
+                <li class="nav-item"><a href="/blogs">Blogs</a></li>
+                <li class="nav-item active1"><a href="/contact">Contact</a></li>
+            </ul>    
+        </nav>
+    </header>
+    <section class="contact">
+        <h2 class="extra-height-2 center-align align-me ">Contact me</h2>
+        <div class="contact-merge">
+            <div class="contact-info extra-height-2">
+                <p class="contact-description center-align extra-height-2">If you have any queries,feel free to
+                    send the kite. If you don't get response
+                    immediately, I might just be laughing at the memes in the
+                    reddit. I'll get back to you anyway.
+                </p>
+                <h4 class="scold-me center-align extra-height-3">You can scold me here</h4>
+                <div class="email center-align">
+                    <i class="fas fa-envelope"></i> diwash.happycoder@gmail.com
+                </div>
+                <div class="social-links center-align extra-height-3 ">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="contact-form {%if messages%} extra-height-2 {%endif%} " {%if messages%} style="align-self:center;" {%endif%}>
+                {% if messages %}
+                <ul class="messages align-me">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{message}}</h3></li>
+                    {% endfor %}
+                </ul>
+                {%else%}
+                <h2 class="extra-height-3 center-align color-me">How Can I Help You?</h2>
+                <form class="form" action="." method="POST">
+                    <div class="first-row">
+                    <div class="form-element">
+                        <label class="form-gap" for="email">Email</label><br>
+                        <input type="email" name="email" id='email' placeholder="example@mail.com">
+                    </div>
+                    <div class="form-element">
+                        <label class="form-gap" for="name">Name</label><br>
+                        <input type="text" name="name" id='name' placeholder="John Doe">
+                    </div>
+                </div>
+                <div class="form-element">
+                    <div class="second-row">
+                        <label class="form-gap" for="Message">Message</label><br>
+                        <textarea id='Message' name="message" rows="5" placeholder="Hey there!"></textarea>
+                    </div>
+                </div>
+                {%csrf_token%}
+                <button class="btn-orange btn-margin">Submit &nbsp; <i class="fas fa-paper-plane"></i></button>
+                </form>
+                {%endif%}
+            </div> 
+        </div>
+    </section>
+</body>
+</html>

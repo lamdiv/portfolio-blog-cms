@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{%load static%}
+{%load blogs_tags%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/media.css'%}">
+    <script src="https://kit.fontawesome.com/7c8f6ae518.js" crossorigin="anonymous"></script>
+    <title>Diwash Lamichhane</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="{% static 'assets/logo.png'%}" class="logo">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn">
+                <label for="nav-check">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </label>
+              </div>
+              <ul class="nav-items">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/about">About</a></li>
+                <li class="nav-item"><a href="/portfolio">Portfolio</a></li>
+                <li class="nav-item active1"><a href="/blogs">Blogs</a></li>
+                <li class="nav-item"><a href="/contact">Contact</a></li>
+            </ul> 
+        </nav>
+
+        <section class="blogs">
+            <h3 style="display: inline-block;" class="extra-height center-align">Search Results for <h2 style="margin-left:15px;display: inline-block;">"{{query}}"</h2></h3>
+            <div class="blogs-elements">
+                  <div class="blog-main">
+                    <div class="pagination-aligner">
+                        <div class="blog-arrange" style="{%if not results%} justify-content:center; {%endif%}">
+
+                        {%for blog in results%}
+                        <div class="blog">
+                            <img src="{{blog.thumbnail.url}}">
+                            <div class="over-img">
+                                
+                                <div class="tags">
+                                    {%for tags in blog.tags.all%}
+                                    <div class="tags3">{{tags}}</div>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                            <div class="blog-title">
+                                <h4 class="title">{{blog.title.title}}</h4>
+                                <div><i class="fas fa-comment"></i>27</div>
+                            </div>
+                            <div class="description">
+                                {{blog.body|safe|truncatewords:30}}
+                            </div>
+                            <button class="read-more"><a href="{{blog.get_absolute_url}}">read more ></a></button>
+                        </div>
+                        {%empty%}
+                            <p class="just-no align-me" style="margin-bottom: 30px;">No Results Found</p> 
+                        {%endfor%}
+                        </div>
+                    </div>
+                  </div>
+
+
+                  <div class="blogs-sidebar">
+                    <form method="GET" action="/search">
+                        <div class="search extra-height">
+                            <div class="search-bar" >
+                            <input name="q" type="text" placeholder="search">
+                            <button class="search-icon"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="extra-height">
+                        <h4 class="extra-height-3">Top Posts</h4>
+                        <div class="top-posts">
+                            {% top_posts as posts %}
+                            {%for post in posts %}
+                            <div class="post">
+                                <a href="{{post.get_absolute_url}}"><img class="post-img" src="{{post.thumbnail.url}}"></a>
+                                 <a href="{{post.get_absolute_url}}"><p class="small-p">{{post.title.title}}</p></a>
+                                <div class="calender">
+                                    <i class="fas fa-calendar-day"></i>
+                                    <h5>{{post.publish|date:'M j Y'}}</h5>
+                                </div>
+                            </div>
+                            {%empty%}
+                            <p class="just-no align-me" style="margin-bottom: 30px;">No Top Post</p> 
+                            {%endfor%}
+                            
+                        </div>
+                    </div>
+                    <div class="extra-height">
+                        <h4 class="extra-height-3">Categories</h4>
+                        <div class="categories">
+                            {% categories as cats %}
+                            {% for cat in cats %}
+                            <div class="category"><a href="{% url 'home:categories' cat.categories__slug %}"><p class="small-p-1">{{cat.categories__title}}</p></a><p class="small-p-1">{{cat.categories__title__count}}</p></div>
+                            {%empty%}
+                            <p class="just-no align-me" style="margin-bottom: 30px;">No Category</p> 
+                            {%endfor%}
+                        </div>
+                    </div>
+                    <div class="extra-height">
+                        <h4 class="extra-height-3">Tags Cloud</h4>
+
+                        {%for tag in all_tags%}
+                    <div class="tags"{%if not all_tags%} style="justify-content:center;" {%endif%}>
+                       
+                        <div class="tag"><a href="{% url 'home:tags' tag.tags__slug %}">{{tag.tags__name}}</a></div>
+                        {%empty%}
+                        <p class="just-no align-me" style="margin-bottom: 30px;" >No Tags</p> 
+                        {%endfor%}
+                    </div>
+                </div>
+                    </div>
+            </div>
+            
+        </section>
+    </header>
+    
+</body>
+</html>
