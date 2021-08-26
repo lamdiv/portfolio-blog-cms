@@ -14,7 +14,7 @@ info_dict = {
 app_name="home"
 
 admin.site.site_title = 'Portfolio'
-admin.site.site_header = 'My portfolio Websit'    
+admin.site.site_header = 'My portfolio Website'    
 admin.site.index_title = 'Features Area'
 
 urlpatterns = [
