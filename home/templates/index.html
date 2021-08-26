@@ -1,15 +1,7 @@
-<!DOCTYPE html>
+{%extends "./base.html"%}
 {%load static%}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    <link rel="stylesheet" href="{%static 'css/media.css'%}">
-    <title>Diwash Lamichhane</title>
-</head>
-<body>
-    <!-- Load Facebook SDK for JavaScript -->
+{%block title%}My Portfolio{%endblock%}
+{%block content%}
     <div id="fb-root"></div>
     <script>
       window.fbAsyncInit = function() {
@@ -62,6 +54,4 @@
             </div>
         </section>
     </header>
-    <script src="./js/index.js"></script>
-</body>
-</html>
+{%endblock%}

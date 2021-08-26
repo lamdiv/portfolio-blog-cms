@@ -1,15 +1,7 @@
-<!DOCTYPE html>
+{%extends "./base.html"%}
 {%load static%}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    <link rel="stylesheet" href="{%static 'css/media.css'%}">
-    <script src="https://kit.fontawesome.com/7c8f6ae518.js" crossorigin="anonymous"></script>
-    <title>Diwash Lamichhane</title>
-</head>
-<body>
+{%block title%}{{project.title}}{%endblock%}
+{%block content%}
     <header>
         <nav class="navbar">
             <input type="checkbox" id="nav-check">
@@ -114,5 +106,4 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
     </script>
-</body>
-</html>
+{%endblock%}
