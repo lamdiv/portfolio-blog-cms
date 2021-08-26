@@ -5,13 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{blog.body|safe|truncatechars:150}}"/>
+    <meta property="og:title" content="{{blog.title.title}}">
+    <meta property="og:image" content="{{blog.thumbnail.url}}">
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
     <link rel="stylesheet" href="{%static 'css/media.css'%}">
     <script src="https://kit.fontawesome.com/7c8f6ae518.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <title>Diwash Lamichhane</title>
+    <title>{{blog.title.title}}</title>
 </head>
 <body>
     <header>
@@ -42,15 +45,15 @@
                         <div class="tags2">{{tag}}</div>
                         {%endfor%}
                         <i class="fas fa-calendar-day"></i><h5>&nbsp;{{blog.publish|date:'M j Y'}}</h5>&nbsp;&nbsp;&nbsp;
-                        <i class="fas fa-comment"></i>&nbsp;27
+                        <i class="fas fa-comment"></i>&nbsp;{{comments.count}}
                     </div>
-                    <h2 class="extra-height-4">{{blog.title.title}}</h2>
-                    <div class="thumbnail"><img src="{{blog.thumbnail.url}}"></div>
+                    <h1 class="extra-height-4" style="color: white;">{{blog.title.title}}</h1>
+                    <div class="thumbnail"><img src="{{blog.thumbnail.url}}" alt="{{blog.title}}"></div>
                     <div class="paragraph">
                         {{blog.body|safe}}
                     </div>
                     <div class="footer">
-                        <div><i class="fas fa-pen-alt color-me"></i> &nbsp;&nbsp;{{blog.author.username}}</div>
+                        <div><i class="fas fa-pen-alt color-me"></i> &nbsp;&nbsp;{{ blog.author.get_full_name|default:blog.author.username }}</div>
                         <div>Share &nbsp;&nbsp;
                             <i class="fab fa-facebook"></i>&nbsp;&nbsp;
                             <i class="fab fa-twitter"></i>
@@ -95,7 +98,7 @@
                             <div class="reply">
                                 <img src="{% static 'assets/pic2.jpg'%}">
                                 <div class="info">
-                                    <h5>{{comment.name}}</h5>
+                                    <h5>{{comment.name.title}}</h5>
                                     <p class="time"><i class="fas fa-clock"></i> &nbsp; {{comment.created|timesince}}</p>
                                     <p class="comment-text">{{comment.body}}</p>
                                 </div>

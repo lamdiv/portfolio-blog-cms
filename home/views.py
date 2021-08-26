@@ -109,6 +109,6 @@ class ContactView(TemplateView):
             send_mail(f'{name} sent mail through lamdiv',
                       f'{message}\n\nname: {name} \nemail: {email}',
                       settings.EMAIL_HOST_USER,
-                      ['diwash.happycoder@gmail.com'],fail_silently=False)
+                      ['your email'],fail_silently=False)
             messages.success(request, 'Your message has been sent')
             return redirect(reverse("home:contact"))
