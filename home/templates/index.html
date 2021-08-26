@@ -2,47 +2,8 @@
 {%load static%}
 {%block title%}My Portfolio{%endblock%}
 {%block content%}
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v10.0'
-        });
-      };
-
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- Your Chat Plugin code -->
-    <div class="fb-customerchat"
-      attribution="setup_tool"
-      page_id="102353731908728">
-    </div>
     <header>
-        <nav class="navbar">
-            <input type="checkbox" id="nav-check">
-            <img src="{% static 'assets/logo.png' %}" class="logo">
-            <div class="nav-btn" id='nav-look' >
-                <label for="nav-check">
-                  <span id='1'></span>
-                  <span id='2'></span>
-                  <span id='3'></span>
-                </label>
-              </div>
-            <ul class="nav-items">
-                <li class="nav-item active1"><a href="/">Home</a></li>
-                <li class="nav-item"><a href="/about">About</a></li>
-                <li class="nav-item"><a href="/portfolio">Portfolio</a></li>
-                <li class="nav-item"><a href="/blogs">Blogs</a></li>
-                <li class="nav-item"><a href="/contact">Contact</a></li>
-            </ul>  
-        </nav>
+       {%include "./navbar.html"%}
         <section class="home">    
             <img src="{%static 'assets/circular-diwash.png'%}" class="home-img-responsive">
             <img src="{%static 'assets/diwash.png'%}" class="home-img">

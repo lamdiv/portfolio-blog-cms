@@ -18,24 +18,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <img src="{% static 'assets/logo.png'%}" class="logo">
-            <input type="checkbox" id="nav-check">
-            <div class="nav-btn">
-                <label for="nav-check">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </label>
-              </div>
-              <ul class="nav-items">
-                <li class="nav-item"><a href="/">Home</a></li>
-                <li class="nav-item"><a href="/about">About</a></li>
-                <li class="nav-item"><a href="/portfolio">Portfolio</a></li>
-                <li class="nav-item active1"><a href="/blogs">Blogs</a></li>
-                <li class="nav-item"><a href="/contact">Contact</a></li>
-            </ul> 
-        </nav>
+        {%include "./navbar.html"%}
 
         <section class="blogs">
             <div class="blogs-elements ">

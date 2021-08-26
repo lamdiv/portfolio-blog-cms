@@ -4,25 +4,7 @@
 {%block content%}
 <body>
     <header>
-        <nav class="navbar">
-            <input type="checkbox" id="nav-check">
-            <img src="{% static 'assets/logo.png' %}" class="logo">
-            <div class="nav-btn">
-                <label for="nav-check">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </label>
-              </div>
-              <ul class="nav-items">
-                <li class="nav-item"><a href="/">Home</a></li>
-                <li class="nav-item"><a href="/about">About</a></li>
-                <li class="nav-item active1"><a href="/portfolio">Portfolio</a></li>
-                <li class="nav-item"><a href="/blogs">Blogs</a></li>
-                <li class="nav-item"><a href="/contact">Contact</a></li>
-            </ul>  
-        </nav>
-
+        {%include "./navbar.html"%}
         <section class="works">
             <h2 class="extra-height center-align">My Works</h2>
             <div class="{%if projects%} work-info {%endif%}">

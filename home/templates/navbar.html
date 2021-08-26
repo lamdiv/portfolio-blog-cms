@@ -1,0 +1,21 @@
+{%load static%}
+{%block navbar%}
+<nav class="navbar">
+    <input type="checkbox" id="nav-check">
+    <img src="{% static 'assets/logo.png' %}" class="logo">
+    <div class="nav-btn" id='nav-look' >
+        <label for="nav-check">
+          <span id='1'></span>
+          <span id='2'></span>
+          <span id='3'></span>
+        </label>
+      </div>
+    <ul class="nav-items">
+        <li class="nav-item active1"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about">About</a></li>
+        <li class="nav-item"><a href="/portfolio">Portfolio</a></li>
+        <li class="nav-item"><a href="/blogs">Blogs</a></li>
+        <li class="nav-item"><a href="/contact">Contact</a></li>
+    </ul>  
+</nav>
+{%endblock%}
