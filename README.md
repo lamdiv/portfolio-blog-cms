@@ -1,6 +1,6 @@
 # portfolio
 
-This is the personal website with ability to add projects and create blogs with search functionality.
+This is the personal website with ability to add projects and create blogs with search functionality. In other words it is complete Content Management System.
 
 ## Setup Process
 
