@@ -10,7 +10,7 @@ This is the personal website with ability to add projects and create blogs with 
 
 **Some Required Changes**
             
-Find ```settings.py``` in ```project/protfolio``` folder and add Email and Password of your Gmail account. Enable the less secure application feature in your google account. This account will send you the email when people try to contact you.
+Find ```settings.py``` in ```project/portfolio``` folder and add Email and Password of your Gmail account. Enable the less secure application feature in your google account. This account will send you the email when people try to contact you.
 
 ```bash
 EMAIL_HOST_USER = "your email"
